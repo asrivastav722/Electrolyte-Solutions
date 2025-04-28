@@ -11,17 +11,17 @@ export default function Services(){
     { key:3,icon:<Website/>,label:"Web /Mobile ",sub:" Websites and Mobile Applications"},
   ]
 
-    return <section className="d-flex flex-col align-items-center gap justify-center bg-slate-50 p-4 ">
-      <div className="my-5 pb-4 d-flex flex-col gap-4">
+    return <section className="ht-65 d-flex flex-col align-items-center justify-center bg-slate-50  ">
+      {/* <div className="my-5 pb-4 d-flex flex-col gap-4"> */}
     <h2 className="w-40per mont text-center w-100 shrink-0">Our Services</h2>
-    <div className="d-flex gap-3 hidescrollbar overflow-x-scroll">
+    <div className="d-flex gap-3 p-2 hidescrollbar overflow-x-scroll">
           {services.map((value)=>{
-            return <div key={value.key} className="w-100 p-4  bg-slate-100 rounded-xl">
+            return <div key={value.key} className="w-100 p-4 shadow-sm bg-slate-100 rounded-xl">
             {value.icon}
             <h4 className="mont mt-2 font-normal">{value.label}</h4>
-            <p className="poppins font-light">{value.sub}</p>
+            <p className="poppins font-light tracking-wide">{value.sub}</p>
         </div>})}
     </div>
-    </div>
+    {/* </div> */}
   </section>
 }

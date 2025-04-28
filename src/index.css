@@ -11,143 +11,18 @@
 }
 
 /* Body and general styles */
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background-color: #f4f4f4;
-  color: #333;
-}
+
 bg-dark{
   background-color: rgb(34, 2, 2);
 }
 
-/* header {
-  background-color: #1a73e8;
-  color: white;
-  text-align: center;
-  padding: 60px 0;
-} */
-
-/* h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-} */
-
-/* button {
-  background-color: #fff;
-  color: #1a73e8;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-button:hover {
-  background-color: #1a73e8;
-  color: white;
-} */
-
-/* About Section */
-#about {
-  padding: 40px;
-  background-color: white;
-  text-align: center;
-}
-
-/* Services Section */
-#services {
-  padding: 40px;
-  background-color: #f4f4f4;
-  display: flex;
-  justify-content: space-around;
-  gap: 20px;
-  text-align: center;
-}
-
-.service-item {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 250px;
-}
-
-.service-item img {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 10px;
-}
-
-h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-/* Why Choose Us Section */
-#why-choose-us {
-  padding: 40px;
-  background-color: white;
-  text-align: center;
-}
-
-ul {
-  list-style-type: none;
-  margin-top: 20px;
-}
-
-/* Contact Section */
-#contact {
-  padding: 40px;
-  background-color: #f4f4f4;
-  text-align: center;
-}
-
-form {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-}
-
-button[type="submit"] {
-  background-color: #1a73e8;
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  cursor: pointer;
-}
-
-button[type="submit"]:hover {
-  background-color: #165abc;
-}
-
-/* Footer */
 footer {
   background-color: #333;
-  color: white;
   text-align: center;
-  padding: 10px;
-  /* position: absolute; */
-  bottom: 0;
-  width: 100%;
 }
 
-
-
-
-.ht-75{
-  height: 75vh !important;
+.ht-65{
+  height: 65vh !important;
 }
 .w-40per{
   width: 40% !important;
@@ -167,4 +42,7 @@ footer {
 svg{
   height: 100px ;
   width: 100px ;
+}
+.h-px-100{
+  height: 100px !important;
 }
