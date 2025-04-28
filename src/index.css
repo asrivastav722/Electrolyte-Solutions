@@ -51,4 +51,8 @@ svg{
   .ht-65{
     height: 85vh !important;
   }
+  svg{
+    height: 60px ;
+    width: 60px ;
+  }
 }
