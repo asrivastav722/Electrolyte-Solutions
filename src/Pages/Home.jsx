@@ -6,29 +6,18 @@ import WhyChoose from '../Sections/WhyChoose';
 import Footer from '../Sections/Footer';
 import Contact from '../Sections/Contact';
 
-const ElectrolyteSolutions = () => {
+const Home = () => {
 
   return (
-    <div>
-      {/* Hero Section */}
-      <Hero/>
-
-      {/* About Section */}
-      <About/>
-
-      {/* Services Section */}
-      <Services/>
-
-      {/* Why Choose Us Section */}
-      <WhyChoose/>
-
-      {/* Contact Section */}
-      <Contact/>
-
-      {/* Footer */}
+    <div className='h-100 w-100 '>
+        <Hero/>
+        <About/>
+        <Services/>
+        <WhyChoose/>
+        <Contact/>
         <Footer/>
     </div>
   );
 };
 
-export default ElectrolyteSolutions;
+export default Home;

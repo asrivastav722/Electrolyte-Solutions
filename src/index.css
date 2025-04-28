@@ -17,15 +17,18 @@ body {
   background-color: #f4f4f4;
   color: #333;
 }
+bg-dark{
+  background-color: rgb(34, 2, 2);
+}
 
-header {
+/* header {
   background-color: #1a73e8;
   color: white;
   text-align: center;
   padding: 60px 0;
-}
+} */
 
-h1 {
+/* h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
 }
@@ -33,9 +36,9 @@ h1 {
 p {
   font-size: 1.2rem;
   margin-bottom: 20px;
-}
+} */
 
-button {
+/* button {
   background-color: #fff;
   color: #1a73e8;
   padding: 10px 20px;
@@ -48,7 +51,7 @@ button {
 button:hover {
   background-color: #1a73e8;
   color: white;
-}
+} */
 
 /* About Section */
 #about {
@@ -143,12 +146,25 @@ footer {
 
 
 
-.h-75{
-  height: 75vh;
+.ht-75{
+  height: 75vh !important;
+}
+.w-40per{
+  width: 40% !important;
 }
 .poppins{
   font-family:poppins !important;
 }
 .mont{
-  font-family: monserrat !important;
+  font-family: Montserrat !important;
+}
+.w-400px{
+  width: 400px !important;
+}
+.hidescrollbar::-webkit-scrollbar{
+  display: none !important;
+}
+svg{
+  height: 100px ;
+  width: 100px ;
 }

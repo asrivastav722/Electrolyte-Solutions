@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import ElectrolyteSolutions from './Pages/Home';
+import Home from './Pages/Home';
 
 function App() {
   return (
-    <ElectrolyteSolutions/>
+    <Home/>
   );
 }
 
