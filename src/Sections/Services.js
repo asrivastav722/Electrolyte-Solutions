@@ -11,17 +11,31 @@ export default function Services(){
     { key:3,icon:<Website/>,label:"Web /Mobile ",sub:" Websites and Mobile Applications"},
   ]
 
-    return <section className="ht-65 d-flex flex-col align-items-center justify-center bg-slate-50  ">
-      {/* <div className="my-5 pb-4 d-flex flex-col gap-4"> */}
-    <h2 className="w-40per mont text-center w-100 shrink-0">Our Services</h2>
-    <div className="d-flex gap-3 p-2 hidescrollbar overflow-x-scroll">
-          {services.map((value)=>{
-            return <div key={value.key} className="w-100 p-4 shadow-sm bg-slate-100 rounded-xl">
-            {value.icon}
-            <h4 className="mont mt-2 font-normal">{value.label}</h4>
-            <p className="poppins font-light tracking-wide">{value.sub}</p>
-        </div>})}
-    </div>
-    {/* </div> */}
-  </section>
+    return <><section className=" d-none d-lg-flex h-fit p-5 flex-col gap-4 align-items-center justify-center bg-slate-50 ">
+              <h2 className=" mont text-center w-100">Our Services</h2>
+              <div className="d-flex flex-wrap ">
+                    {services.map((value)=>{
+                      return <div key={value.key} className="d-flex basis-1/4 p-2 shrink-0 grow-0">
+                        <div className="shadow-sm p-2 w-100 h-100 bg-slate-100 rounded-xl">
+                      {value.icon}
+                      <h4 className="mont mt-2 font-normal">{value.label}</h4>
+                      <p className="poppins font-light tracking-wide">{value.sub}</p>
+                      </div>
+                  </div>})}
+              </div>
+            </section>
+            <section className=" d-flex d-lg-none h-fit p-3 py-5 flex-col gap-4 align-items-center justify-center bg-slate-50 ">
+              <h2 className=" mont text-center w-100">Our Services</h2>
+              <div className="d-flex flex-wrap ">
+                    {services.map((value)=>{
+                      return <div key={value.key} className="d-flex basis-1/2 p-2 shrink-0 grow-0">
+                        <div className="shadow-sm p-2 w-100 h-100 bg-slate-100 rounded-xl">
+                      {value.icon}
+                      <h4 className="mont mt-2 font-normal">{value.label}</h4>
+                      <p className="poppins font-light tracking-wide">{value.sub}</p>
+                      </div>
+                  </div>})}
+              </div>
+            </section>
+            </>
 }

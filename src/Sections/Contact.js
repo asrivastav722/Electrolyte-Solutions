@@ -12,11 +12,12 @@ export default function Contact(){
 
 
 
-    return <section className="d-flex flex-col p-5 w-100 bg-slate-50 align-items-center justify-center">
+    return <section className="d-flex py-5 flex-col w-100 bg-slate-50 gap-3 align-items-center justify-center">
       
-    <h2 className="mont">Get In Touch</h2>
+    <div><h2 className="mont">Get In Touch</h2>
     <p className="poppins font-light">Contact us today for fast, reliable service.</p>
-    <Form onFinish={handleFinish} className='w-50 d-flex flex-col'>
+    </div>
+    <Form onFinish={handleFinish} className='w-80 m-0 p-0 d-flex flex-col'>
       <Form.Item
         name="name"
         rules={[{ required: true, message: 'Please enter your name' }]}
