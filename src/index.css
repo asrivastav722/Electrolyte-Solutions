@@ -9,7 +9,19 @@
   padding: 0;
   box-sizing: border-box;
 }
+.colorwhite{
+  color: white;
+}
+.colorwhite:hover{
+  color:black;
+}
+.logo{
+  height: 100px;
+  width: 100px;
+  background-position: center;
+  background-size: cover;
 
+}
 /* Body and general styles */
 
 bg-dark{
