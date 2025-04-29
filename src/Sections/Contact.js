@@ -12,38 +12,17 @@ export default function Contact(){
 
 
 
-    return <section className="d-flex py-5 flex-col w-100 bg-slate-50 gap-3 align-items-center justify-center">
+    return <section id="contact" className="d-flex py-5 flex-col w-100 bg-slate-50 gap-3 align-items-center justify-center">
       
     <div><h2 className="mont">Get In Touch</h2>
     <p className="poppins font-light">Contact us today for fast, reliable service.</p>
     </div>
-    <Form onFinish={handleFinish} className='w-80 m-0 p-0 d-flex flex-col'>
-      <Form.Item
-        name="name"
-        rules={[{ required: true, message: 'Please enter your name' }]}
-      >
-        <Input className="poppins p-2.5" placeholder="Your Name" />
-      </Form.Item>
-
-      <Form.Item
-        name="phone"
-        rules={[{ required: true, message: 'Please enter your phone' }]}
-      >
-        <Input className="poppins p-2.5" type="tel" placeholder="Your Phone" />
-      </Form.Item>
-
-      <Form.Item
-        name="message"
-        rules={[{ required: true, message: 'Please enter your message' }]}
-      >
-        <Input.TextArea className="poppins p-2.5 h-px-100" placeholder="Your Message" />
-      </Form.Item>
-
-      <Form.Item>
-        <Button type="primary" className='mont' htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
+    
+    <form className='d-flex flex-col gap-2 w-80' action="https://formsubmit.co/sasgriggs329@gmail.com" method="POST">
+     <input className='poppins p-3 rounded-lg text-sm border-1' placeholder='Enter your Name' type="text" name="name" required></input>
+     <input className='poppins p-3 rounded-lg text-sm border-1' placeholder='Enter your Email' type="email" name="email" required></input>
+     <textarea className='poppins p-3 rounded-lg text-sm border-1' rows="4" placeholder='Enter your Message' type="message" name="message" required></textarea>
+     <button type="submit" className='colorwhite cursor-pointer  h-fit w-fit px-4 py-2 rounded-lg'>Send</button>
+    </form>
   </section>
 }

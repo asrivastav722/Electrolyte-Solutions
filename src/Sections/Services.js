@@ -11,7 +11,7 @@ export default function Services(){
     { key:3,icon:<Website/>,label:"Web /Mobile ",sub:" Websites and Mobile Applications"},
   ]
 
-    return <><section className=" d-none d-lg-flex h-fit p-5 flex-col gap-4 align-items-center justify-center bg-slate-50 ">
+    return <><section id="services" className=" d-none d-lg-flex h-fit p-5 flex-col gap-4 align-items-center justify-center bg-slate-50 ">
               <h2 className=" mont text-center w-100">Our Services</h2>
               <div className="d-flex flex-wrap ">
                     {services.map((value)=>{

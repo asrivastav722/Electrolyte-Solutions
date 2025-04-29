@@ -11,9 +11,11 @@
 }
 .colorwhite{
   color: white;
+  background-color: black;
 }
 .colorwhite:hover{
   color:black;
+  background-color: white;
 }
 .logo{
   height: 100px;
