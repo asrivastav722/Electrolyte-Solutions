@@ -18,7 +18,7 @@ export default function Contact(){
     <p className="poppins font-light">Contact us today for fast, reliable service.</p>
     </div>
     
-    <form className='d-flex flex-col gap-2 w-80' action="https://formsubmit.co/sasgriggs329@gmail.com" method="POST">
+    <form className='d-flex flex-col gap-2 w-80' action="https://formsubmit.co/contact.electrolytesolutions@gmail.com" method="POST">
      <input className='poppins p-3 rounded-lg text-sm border-1' placeholder='Enter Name' type="text" name="name" required></input>
      <input className='poppins p-3 rounded-lg text-sm border-1' placeholder='Enter Phone' type="text" name="name" required></input>
      <input className='poppins p-3 rounded-lg text-sm border-1' placeholder='Enter Email' type="phone" name="phone" required></input>
