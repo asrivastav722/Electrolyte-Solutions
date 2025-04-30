@@ -45,7 +45,7 @@ export default function Contact(){
      <input className='poppins p-3 rounded-lg text-sm border-1 w-100' placeholder='Enter Phone' type="text" name="name" required></input>
      <input className='poppins p-3 rounded-lg text-sm border-1 w-100' placeholder='Enter Email' type="phone" name="phone" required></input>
      <textarea className='poppins p-3 rounded-lg text-sm border-1 w-100' rows="4" placeholder='Enter your Message' type="message" name="message" required></textarea>
-     <button type="submit" className='colorwhite cursor-pointer  h-fit w-fit px-4 py-2 rounded-lg'>Send</button>
+     <button type="submit" className='colorwhite cursor-pointer mt-2  h-fit w-fit px-4 py-2 rounded-lg'>Send</button>
     </form>
     </div>
     <div className=' d-flex flex-col w-100 h-80'>
