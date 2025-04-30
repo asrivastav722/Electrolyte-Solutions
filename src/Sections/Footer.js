@@ -1,5 +1,5 @@
 export default function Footer(){
-    return <footer className="bg-black text-white py-10">
+    return <footer className="bg-gray-900 text-white py-10">
     {/* // <footer className=" p-4"> */}
   <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
     {/* <!-- Brand Info --> */}
@@ -22,7 +22,7 @@ export default function Footer(){
     <div>
       <h3 className="text-lg font-semibold mb-2">Contact</h3>
       <p className="text-sm m-1 text-gray-400">Phone: +91 96481 46167</p>
-      <p className="text-sm m-1 text-gray-400">Email: contact.electrolytesolutions@gmail.com</p>
+      <p className="text-sm m-1 text-gray-400">Email: sasgriggs329@gmail.com</p>
       <a href="https://wa.me/919648146167?text=Hello%20Electrolyte%20Solutions%2C%20I%20would%20like%20to%20book%20a%20service%21"
          className="inline-block mt-2 bg-green-500 hover:bg-green-600 text-white text-sm px-3 py-1 rounded transition">
         Chat on WhatsApp
