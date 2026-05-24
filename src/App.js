@@ -8,10 +8,11 @@ import {
   FileTextOutlined,
   MenuOutlined,
   CloseOutlined,
-  PhoneOutlined,
-  MailOutlined,
-  EnvironmentOutlined,
-  WhatsAppOutlined
+  FacebookOutlined,
+  InstagramOutlined,
+  LinkedinOutlined,
+  WhatsAppOutlined,
+  MailOutlined
 } from '@ant-design/icons';
 
 // ==========================================
@@ -161,7 +162,6 @@ export default function App() {
             HERO MAIN BANNER
         ========================================== */}
         <section id="hero" className="pt-44 pb-24 px-6 relative overflow-hidden flex items-center min-h-[85vh]">
-          {/* Tech Grid Effect */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#161b22_1px,transparent_1px),linear-gradient(to_bottom,#161b22_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] pointer-events-none"></div>
           <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[450px] h-[450px] bg-[#00f0ff]/5 rounded-full filter blur-[120px] pointer-events-none"></div>
           
@@ -219,6 +219,7 @@ export default function App() {
                 whileHover={{ y: -4, borderColor: '#00f0ff', boxShadow: '0 0 20px rgba(0,240,255,0.08)' }}
                 className="bg-[#0d1117]/60 backdrop-blur-md border border-[#21262d] p-8 rounded-xl transition-all duration-300 relative group"
               >
+                <div className="absolute top-0 left-0 h-[3px] w-0 bg-gradient-to-r from-[#07575b] to-[#00f0ff] group-hover:w-full transition-all duration-500"></div>
                 <div className="flex items-center gap-4 mb-6 border-b border-[#21262d] pb-4">
                   {branch.icon}
                   <h3 className="font-['Montserrat'] font-bold text-lg text-white tracking-wide">{branch.title}</h3>
@@ -276,6 +277,7 @@ export default function App() {
                   <h2 className="font-['Montserrat'] font-black text-2xl text-white uppercase tracking-wide mb-1">Location on Map</h2>
                   <p className="font-['Poppins'] text-xs text-slate-400 mb-6 font-light">Here is our Physical Location.</p>
                   <iframe 
+                    title="Google Maps Location of Electrolyte Solutions Desktop"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3541.925400166601!2d82.1851739!3d27.4092567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3999df796136117d%3A0x2e0c4dbffc706446!2sElectrolyte%20Solutions!5e0!3m2!1sen!2sin!4v1746004641917!5m2!1sen!2sin" 
                     className="w-full border border-[#21262d] opacity-80 filter invert grayscale rounded-xl aspect-[3/1.65]" 
                     allowFullScreen="" 
@@ -307,6 +309,7 @@ export default function App() {
                 <h2 className="font-['Montserrat'] font-bold text-xl text-center text-white mb-1">Location on Map</h2>
                 <p className="font-['Poppins'] text-center font-light text-xs text-slate-400 mb-4">Here is our Physical Location.</p>
                 <iframe 
+                  title="Google Maps Location of Electrolyte Solutions Mobile"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3541.925400166601!2d82.1851739!3d27.4092567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3999df796136117d%3A0x2e0c4dbffc706446!2sElectrolyte%20Solutions!5e0!3m2!1sen!2sin!4v1746004641917!5m2!1sen!2sin" 
                   className="w-full border border-[#21262d] filter invert grayscale rounded-xl aspect-[3/1.65]" 
                   allowFullScreen="" 
@@ -350,7 +353,7 @@ export default function App() {
               <p className="font-['Poppins'] text-xs text-gray-400 break-all"><MailOutlined/> Email: contact.electrolytesolutions@gmail.com</p>
               <a 
                 href="https://wa.me/919648146167?text=Hello%20Electrolyte%20Solutions%2C%20I%20would%20like%20to%20book%20a%20service%21"
-                className="inline-block mt-2 bg-green-500 hover:bg-green-600 text-white text-xs px-4 py-2 rounded-lg font-['Poppins'] font-bold transition-all duration-300 w-fit text-center"
+                className="inline-block mt-2 bg-green-500 hover:bg-green-600 text-white text-sm px-4 py-2 rounded-lg font-['Poppins'] font-bold transition-all duration-300 w-fit text-center"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -358,18 +361,25 @@ export default function App() {
               </a>
             </div>
 
-            {/* Column 4: Social Items */}
+            {/* Column 4: Social Items with Integrated Antd Icons */}
             <div>
               <h3 className="font-['Montserrat'] text-sm font-bold uppercase tracking-widest mb-4 text-[#58a6ff]">Follow Us</h3>
-              <div className="flex space-x-4 text-gray-400 text-base">
-                <a href="#" className="hover:text-[#00f0ff] transition-colors" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
-                <a href="#" className="hover:text-[#00f0ff] transition-colors" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
-                <a href="#" className="hover:text-[#00f0ff] transition-colors" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+              <div className="flex space-x-4 text-gray-400 text-2xl">
+                <a href="javascript:void(0)" className="hover:text-[#00f0ff] transition-colors" aria-label="Facebook">
+                  <FacebookOutlined />
+                </a>
+                <a href="javascript:void(0)" className="hover:text-[#00f0ff] transition-colors" aria-label="Instagram">
+                  <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>" alt="" className="hidden" />
+                  <InstagramOutlined />
+                </a>
+                <a href="javascript:void(0)" className="hover:text-[#00f0ff] transition-colors" aria-label="LinkedIn">
+                  <LinkedinOutlined />
+                </a>
               </div>
             </div>
           </div>
 
-          {/* Bottom Intellectual Line */}
+          {/* Bottom Copyright Baseline */}
           <div className="max-w-6xl mx-auto mt-12 border-t border-gray-800 pt-6 text-center text-xs text-gray-500 font-['Montserrat'] tracking-wide">
             © 2026 Electrolyte Solutions. All rights reserved.
           </div>
