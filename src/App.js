@@ -10,7 +10,8 @@ import {
   CloseOutlined,
   PhoneOutlined,
   MailOutlined,
-  EnvironmentOutlined
+  EnvironmentOutlined,
+  WhatsAppOutlined
 } from '@ant-design/icons';
 
 // ==========================================
@@ -345,8 +346,8 @@ export default function App() {
             {/* Column 3: Contact Details */}
             <div className="flex flex-col gap-2">
               <h3 className="font-['Montserrat'] text-sm font-bold uppercase tracking-widest mb-2 text-[#58a6ff]">Contact</h3>
-              <p className="font-['Poppins'] text-xs text-gray-400">Phone: +91 96481 46167</p>
-              <p className="font-['Poppins'] text-xs text-gray-400 break-all">Email: contact.electrolytesolutions@gmail.com</p>
+              <p className="font-['Poppins'] text-xs text-gray-400"><WhatsAppOutlined/> Phone: +91 96481 46167. +91 80811 11867</p>
+              <p className="font-['Poppins'] text-xs text-gray-400 break-all"><MailOutlined/> Email: contact.electrolytesolutions@gmail.com</p>
               <a 
                 href="https://wa.me/919648146167?text=Hello%20Electrolyte%20Solutions%2C%20I%20would%20like%20to%20book%20a%20service%21"
                 className="inline-block mt-2 bg-green-500 hover:bg-green-600 text-white text-xs px-4 py-2 rounded-lg font-['Poppins'] font-bold transition-all duration-300 w-fit text-center"
