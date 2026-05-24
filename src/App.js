@@ -361,20 +361,34 @@ export default function App() {
               </a>
             </div>
 
-            {/* Column 4: Social Items with Integrated Antd Icons */}
+            {/* Column 4: Social Items with Styled Buttons */}
             <div>
               <h3 className="font-['Montserrat'] text-sm font-bold uppercase tracking-widest mb-4 text-[#58a6ff]">Follow Us</h3>
               <div className="flex space-x-4 text-gray-400 text-2xl">
-                <a href="javascript:void(0)" className="hover:text-[#00f0ff] transition-colors" aria-label="Facebook">
+                <button 
+                  type="button"
+                  className="bg-transparent border-0 p-0 text-gray-400 hover:text-[#00f0ff] cursor-pointer transition-colors" 
+                  aria-label="Facebook"
+                  onClick={() => window.open('#', '_blank')}
+                >
                   <FacebookOutlined />
-                </a>
-                <a href="javascript:void(0)" className="hover:text-[#00f0ff] transition-colors" aria-label="Instagram">
-                  <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>" alt="" className="hidden" />
+                </button>
+                <button 
+                  type="button"
+                  className="bg-transparent border-0 p-0 text-gray-400 hover:text-[#00f0ff] cursor-pointer transition-colors" 
+                  aria-label="Instagram"
+                  onClick={() => window.open('#', '_blank')}
+                >
                   <InstagramOutlined />
-                </a>
-                <a href="javascript:void(0)" className="hover:text-[#00f0ff] transition-colors" aria-label="LinkedIn">
+                </button>
+                <button 
+                  type="button"
+                  className="bg-transparent border-0 p-0 text-gray-400 hover:text-[#00f0ff] cursor-pointer transition-colors" 
+                  aria-label="LinkedIn"
+                  onClick={() => window.open('#', '_blank')}
+                >
                   <LinkedinOutlined />
-                </a>
+                </button>
               </div>
             </div>
           </div>
