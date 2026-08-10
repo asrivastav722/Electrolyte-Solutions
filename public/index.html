@@ -5,44 +5,98 @@
     <link rel="icon" href="%PUBLIC_URL%/Electrolyte.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Electrolyte Solutions- Service at your Doorstep"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/Electrolyte.png" />
-    <meta name="google-site-verification" content="a6hi3CX2WS9gAa4fvjcIL9OKzJL77AfPt-FHGl3BqtY" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>Electrolyte Solutions ⚡</title>
+    <!-- Core SEO Meta Tags -->
+    <title>Electrolyte Solutions | IT Accessories, Repair & Software Development</title>
+    <meta 
+      name="description" 
+      content="Electrolyte Solutions: Your complete IT hub. Shop mobile & computer accessories, hardware, plus doorstep laptop/mobile repairs, custom software development, and CSC services." 
+    />
+    <meta 
+      name="keywords" 
+      content="Electrolyte Solutions, mobile accessories, computer accessories, laptop accessories, buy IT products, IT hardware shop, laptop repair, mobile repair, printer repair, software development, web app development, CSC services" 
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://yourdomain.com/" />
+
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content="a6hi3CX2WS9gAa4fvjcIL9OKzJL77AfPt-FHGl3BqtY" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.electrolytesolutions.com/" />
+    <meta property="og:title" content="Electrolyte Solutions | IT Products, Accessories & Services" />
+    <meta property="og:description" content="Shop mobile & computer accessories, IT products, doorstep repairs, software development, and CSC services." />
+    <meta property="og:image" content="%PUBLIC_URL%/Electrolyte.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Electrolyte Solutions | IT Products, Accessories & Services" />
+    <meta name="twitter:description" content="Shop mobile and computer accessories alongside complete IT repairs, software development, and CSC services." />
+    <meta name="twitter:image" content="%PUBLIC_URL%/Electrolyte.png" />
+
+    <!-- PWA / Icons -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/Electrolyte.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- External Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Structured Data / JSON-LD for Local Business & Computer Electronics Store -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ComputerStore",
+      "name": "Electrolyte Solutions",
+      "image": "https://www.electrolytesolutions.com/Electrolyte.png",
+      "@id": "https://www.electrolytesolutions.com",
+      "url": "https://www.electrolytesolutions.com",
+      "telephone": "+91-808111867 ",
+      "priceRange": "249",
+      "description": "Complete IT ecosystem offering mobile & computer accessories, hardware products, repair services (laptops, mobiles, printers), software development, and CSC services.",
+      "areaServed": "Local",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "IT Products & Services Catalog",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Mobile & Computer Accessories (Keyboards, Mice, Cables, Chargers, Cases, Storage)"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Hardware Repair & Maintenance (Laptop, Mobile, Printer, PC)"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Custom Software & Web Development"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "CSC Services"
+            }
+          }
+        ]
+      }
+    }
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>
