@@ -4,3 +4,10 @@
 
 
 /* Reset some defaults */
+.primarytext{
+    font-family: "Roboto Condensed", sans-serif !important;
+}
+
+.secondarytext{
+    font-family:  "DM Sans", sans-serif !important;
+}

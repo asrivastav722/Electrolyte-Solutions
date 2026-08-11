@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Input, Button, ConfigProvider } from 'antd';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -12,7 +12,10 @@ import {
   InstagramOutlined,
   LinkedinOutlined,
   WhatsAppOutlined,
-  MailOutlined
+  MailOutlined,
+  ShoppingCartOutlined,
+  DashboardOutlined,
+  UserOutlined
 } from '@ant-design/icons';
 
 // ==========================================
@@ -31,10 +34,19 @@ const staggerContainer = {
 export default function App() {
   const [form] = Form.useForm();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showLandingModal, setShowLandingModal] = useState(true); // Controls the landing prompt
 
-  const logoPath = "./src/assets/images/Electrolyte.png";
+  const logoPath = "./assets/images/Electrolyte.png";
 
-  // Sleek Glassmorphism Input Styling
+  // Prevent scrolling when modal is open
+  useEffect(() => {
+    if (showLandingModal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [showLandingModal]);
+
   const inputStyle = {
     fontFamily: "'Poppins', sans-serif",
     backgroundColor: 'rgba(13, 17, 23, 0.7)',
@@ -46,9 +58,6 @@ export default function App() {
     border: '1px solid #30363d',
   };
 
-  // ==========================================
-  // COMPLETE UNFILTERED LIST OF SERVICES
-  // ==========================================
   const serviceBranches = [
     {
       title: "Electrolyte Computers",
@@ -109,12 +118,80 @@ export default function App() {
         },
       }}
     >
-      <div className="bg-[#010409] text-[#c9d1d9] font-sans antialiased selection:bg-[#00f0ff] selection:text-[#010409] min-h-screen">
+      <div className="bg-[#010409] text-[#c9d1d9] font-sans antialiased selection:bg-[#00f0ff] selection:text-[#010409] min-h-screen relative">
         
         {/* ==========================================
-            NAVIGATION BAR WITH GLASS BLUR EFFECT
+            LANDING PROMPT MODAL
+        ========================================== */}
+        <AnimatePresence>
+          {showLandingModal && (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+            >
+              <motion.div 
+                initial={{ scale: 0.9, y: 20, opacity: 0 }}
+                animate={{ scale: 1, y: 0, opacity: 1 }}
+                exit={{ scale: 0.9, y: 20, opacity: 0 }}
+                transition={{ type: "spring", duration: 0.6 }}
+                className="bg-[#0d1117] border border-[#30363d] rounded-2xl p-8 max-w-lg w-full shadow-[0_0_40px_rgba(0,240,255,0.1)] relative overflow-hidden"
+              >
+                {/* Decorative background blur */}
+                <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#00f0ff]/20 rounded-full filter blur-[60px]"></div>
+                
+                <h2 className="secondarytext font-black text-3xl text-white mb-2 text-center relative z-10">
+                  Welcome to <br/><span className="text-[#00f0ff]">Electrolyte Solutions</span>
+                </h2>
+                <p className="primarytext text-slate-400 text-center mb-8 text-sm relative z-10">
+                  Where would you like to go today? Select your destination below.
+                </p>
+
+                <div className="flex flex-col gap-4 relative z-10">
+                  {/* Shop Redirect */}
+                  <a href="https://store.electrolytesolutions.in" className="group flex items-center p-4 bg-[#161b22] border border-[#21262d] hover:border-[#00f0ff] rounded-xl transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,240,255,0.2)]">
+                    <div className="bg-[#00f0ff]/10 p-3 rounded-lg mr-4 group-hover:bg-[#00f0ff] transition-colors">
+                      <ShoppingCartOutlined className="text-xl text-[#00f0ff] group-hover:text-[#010409]" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="secondarytext font-bold text-white text-lg">Visit Our Store</h3>
+                      <p className="primarytext text-xs text-slate-400">Browse and purchase products</p>
+                    </div>
+                  </a>
+
+                  {/* Main Website Route */}
+                  <button onClick={() => setShowLandingModal(false)} className="group flex items-center p-4 bg-[#161b22] border border-[#21262d] hover:border-[#00f0ff] rounded-xl transition-all duration-300 text-left hover:shadow-[0_0_15px_rgba(0,240,255,0.2)]">
+                    <div className="bg-[#00f0ff]/10 p-3 rounded-lg mr-4 group-hover:bg-[#00f0ff] transition-colors">
+                      <UserOutlined className="text-xl text-[#00f0ff] group-hover:text-[#010409]" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="secondarytext font-bold text-white text-lg">Continue as Visitor</h3>
+                      <p className="primarytext text-xs text-slate-400">Explore IT services & repairs</p>
+                    </div>
+                  </button>
+
+                  {/* Admin Panel Redirect */}
+                  <a href="https://shop.electrolytesolutions.in" className="group flex items-center p-4 bg-[#161b22] border border-[#21262d] hover:border-[#58a6ff] rounded-xl transition-all duration-300 hover:shadow-[0_0_15px_rgba(88,166,255,0.2)]">
+                    <div className="bg-[#58a6ff]/10 p-3 rounded-lg mr-4 group-hover:bg-[#58a6ff] transition-colors">
+                      <DashboardOutlined className="text-xl text-[#58a6ff] group-hover:text-[#010409]" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="secondarytext font-bold text-white text-lg">ERP Admin Panel</h3>
+                      <p className="primarytext text-xs text-slate-400">Staff & Management Login</p>
+                    </div>
+                  </a>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* ==========================================
+            EXISTING NAVBAR & WEBSITE CONTENT
         ========================================== */}
         <header className="fixed top-0 left-0 w-full bg-[#010409]/70 backdrop-blur-xl z-50 border-b border-[#21262d]">
+          {/* ... [KEEP YOUR EXISTING HEADER CODE HERE] ... */}
           <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
             
             <div className="flex items-center gap-3">
@@ -125,15 +202,15 @@ export default function App() {
                 onError={(e) => { e.target.style.display = 'none'; }}
               />
               <div className="flex flex-col">
-                <span className="font-['Montserrat'] font-black text-lg tracking-wider text-white">ELECTROLYTE SOLUTIONS</span>
-                <span className="text-[11px] font-['Poppins'] font-semibold text-[#00f0ff] uppercase tracking-wide">⚡ Service at your doorstep</span>
+                <span className="secondarytext font-black text-lg tracking-wider text-white">ELECTROLYTE SOLUTIONS</span>
+                <span className="text-[11px] primarytext font-semibold text-[#00f0ff] uppercase tracking-wide">⚡ Service at your doorstep</span>
               </div>
             </div>
             
-            <nav className="hidden lg:flex gap-8 items-center font-['Poppins'] text-sm font-medium">
+            <nav className="hidden lg:flex gap-8 items-center primarytext text-sm font-medium">
               <a href="#hero" className="text-slate-400 hover:text-[#00f0ff] transition-colors">Home</a>
               <a href="#services" className="text-slate-400 hover:text-[#00f0ff] transition-colors">Our Services</a>
-              <a href="#contact" className="border border-[#00f0ff] text-[#00f0ff] hover:bg-[#00f0ff] hover:text-[#010409] px-4 py-2 rounded-lg font-['Montserrat'] font-bold transition-all duration-300">Book Service</a>
+              <a href="#contact" className="border border-[#00f0ff] text-[#00f0ff] hover:bg-[#00f0ff] hover:text-[#010409] px-4 py-2 rounded-lg secondarytext font-bold transition-all duration-300">Book Service</a>
             </nav>
 
             <button className="lg:hidden text-xl text-[#00f0ff]" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
@@ -141,52 +218,50 @@ export default function App() {
             </button>
           </div>
 
-          {/* Mobile Dropdown Menu */}
           <AnimatePresence>
             {mobileMenuOpen && (
               <motion.div 
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
-                className="lg:hidden w-full bg-[#0d1117]/90 backdrop-blur-lg border-b border-[#21262d] px-6 py-4 flex flex-col gap-4 font-['Poppins'] text-sm"
+                className="lg:hidden w-full bg-[#0d1117]/90 backdrop-blur-lg border-b border-[#21262d] px-6 py-4 flex flex-col gap-4 primarytext text-sm"
               >
                 <a href="#hero" onClick={() => setMobileMenuOpen(false)} className="text-slate-300">Home</a>
                 <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-slate-300">Our Services</a>
-                <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="border border-[#00f0ff] text-center text-[#00f0ff] py-2 rounded-lg font-['Montserrat'] font-bold">Book Service</a>
+                <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="border border-[#00f0ff] text-center text-[#00f0ff] py-2 rounded-lg secondarytext font-bold">Book Service</a>
               </motion.div>
             )}
           </AnimatePresence>
         </header>
 
-        {/* ==========================================
-            HERO MAIN BANNER
-        ========================================== */}
+        {/* ... [KEEP YOUR EXISTING HERO SECTION HERE] ... */}
         <section id="hero" className="pt-44 pb-24 px-6 relative overflow-hidden flex items-center min-h-[85vh]">
+          {/* Backgrounds & Text */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#161b22_1px,transparent_1px),linear-gradient(to_bottom,#161b22_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] pointer-events-none"></div>
           <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[450px] h-[450px] bg-[#00f0ff]/5 rounded-full filter blur-[120px] pointer-events-none"></div>
           
           <div className="max-w-5xl mx-auto text-center relative z-10">
             <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
-              <motion.span variants={fadeInUp} className="font-['Montserrat'] text-xs font-bold tracking-widest text-[#00f0ff] uppercase bg-[#00f0ff]/10 border border-[#00f0ff]/20 px-4 py-1.5 rounded-full">
+              <motion.span variants={fadeInUp} className="secondarytext text-xs font-bold tracking-widest text-[#00f0ff] uppercase bg-[#00f0ff]/10 border border-[#00f0ff]/20 px-4 py-1.5 rounded-full">
                 Complete IT Hardware & Software Solutions
               </motion.span>
               
-              <motion.h1 variants={fadeInUp} className="font-['Montserrat'] font-black text-4xl sm:text-6xl text-white mt-8 mb-6 tracking-tight leading-tight">
+              <motion.h1 variants={fadeInUp} className="secondarytext font-black text-4xl sm:text-6xl text-white mt-8 mb-6 tracking-tight leading-tight">
                 Complete IT Services <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f0ff] to-[#58a6ff]">
                   At Your Doorstep
                 </span>
               </motion.h1>
 
-              <motion.p variants={fadeInUp} className="font-['Poppins'] text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+              <motion.p variants={fadeInUp} className="primarytext text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 font-light leading-relaxed">
                 We handle repairs, installations, website building, and government digital forms. No need to visit a shop—our experts come directly to your home or office.
               </motion.p>
 
               <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-4">
-                <a href="#contact" className="bg-[#00f0ff] text-[#010409] font-['Montserrat'] font-bold px-8 py-4 rounded-xl tracking-wide uppercase transition-all duration-300 shadow-[0_0_20px_rgba(0,240,255,0.2)] hover:shadow-[0_0_35px_rgba(0,240,255,0.4)]">
+                <a href="#contact" className="bg-[#00f0ff] text-[#010409] secondarytext font-bold px-8 py-4 rounded-xl tracking-wide uppercase transition-all duration-300 shadow-[0_0_20px_rgba(0,240,255,0.2)] hover:shadow-[0_0_35px_rgba(0,240,255,0.4)]">
                   Contact Us Now
                 </a>
-                <a href="#services" className="border border-[#30363d] bg-[#0d1117]/40 backdrop-blur-md text-white font-['Poppins'] px-8 py-4 rounded-xl transition-all duration-300 hover:bg-[#161b22]">
+                <a href="#services" className="border border-[#30363d] bg-[#0d1117]/40 backdrop-blur-md text-white primarytext px-8 py-4 rounded-xl transition-all duration-300 hover:bg-[#161b22]">
                   View All Services
                 </a>
               </motion.div>
@@ -194,13 +269,18 @@ export default function App() {
           </div>
         </section>
 
+        {/* ... [KEEP YOUR EXISTING SERVICES, CONTACT, AND FOOTER SECTIONS EXACTLY AS THEY WERE] ... */}
+        {/* Intentionally abbreviated here to save token space - leave your existing code for these sections unchanged. */}
+        
+ 
+
         {/* ==========================================
             ALL SERVICES GRID SECTION
         ========================================== */}
         <section id="services" className="py-24 px-6 max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h2 className="font-['Montserrat'] font-black text-3xl sm:text-4xl text-white uppercase tracking-tight">Our Services List</h2>
-            <p className="font-['Poppins'] text-slate-400 font-light text-sm sm:text-base mt-2 max-w-xl mx-auto">
+            <h2 className="secondarytext font-black text-3xl sm:text-4xl text-white uppercase tracking-tight">Our Services List</h2>
+            <p className="primarytext text-slate-400 font-light text-sm sm:text-base mt-2 max-w-xl mx-auto">
               Explore our four main branches created to handle all your tech and digital needs smoothly.
             </p>
           </div>
@@ -222,9 +302,9 @@ export default function App() {
                 <div className="absolute top-0 left-0 h-[3px] w-0 bg-gradient-to-r from-[#07575b] to-[#00f0ff] group-hover:w-full transition-all duration-500"></div>
                 <div className="flex items-center gap-4 mb-6 border-b border-[#21262d] pb-4">
                   {branch.icon}
-                  <h3 className="font-['Montserrat'] font-bold text-lg text-white tracking-wide">{branch.title}</h3>
+                  <h3 className="secondarytext font-bold text-lg text-white tracking-wide">{branch.title}</h3>
                 </div>
-                <ul className="space-y-3.5 font-['Poppins'] text-sm text-slate-400 font-light">
+                <ul className="space-y-3.5 primarytext text-sm text-slate-400 font-light">
                   {branch.items.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <span className="text-[#00f0ff] select-none mt-0.5">•</span>
@@ -254,8 +334,8 @@ export default function App() {
               {/* Form Card */}
               <motion.div className="bg-[#0d1117]/70 backdrop-blur-md border border-[#21262d] p-10 rounded-xl shadow-2xl" variants={fadeInUp}>
                 <div className="mb-8">
-                  <h2 className="font-['Montserrat'] font-black text-2xl text-white uppercase tracking-wide">Get In Touch</h2>
-                  <p className="font-['Poppins'] text-xs text-slate-400 mt-1 font-light">Contact us today for fast, reliable service.</p>
+                  <h2 className="secondarytext font-black text-2xl text-white uppercase tracking-wide">Get In Touch</h2>
+                  <p className="primarytext text-xs text-slate-400 mt-1 font-light">Contact us today for fast, reliable service.</p>
                 </div>
                 
                 <form id="desktop-form" action="https://formsubmit.co/contact.electrolytesolutions@gmail.com" method="POST" className="flex flex-col gap-2">
@@ -264,7 +344,7 @@ export default function App() {
                     <Form.Item name="phone" className="mb-4"><Input style={inputStyle} placeholder="Enter Phone" name="phone" required /></Form.Item>
                     <Form.Item name="email" className="mb-4"><Input style={inputStyle} placeholder="Enter Email" name="email" required /></Form.Item>
                     <Form.Item name="message" className="mb-4"><Input.TextArea style={inputStyle} rows={4} placeholder="Enter your Message" name="message" required /></Form.Item>
-                    <Button type="primary" htmlType="submit" className="w-full bg-transparent hover:bg-[#00f0ff] text-[#00f0ff] hover:text-[#010409] border border-[#00f0ff] h-12 font-['Montserrat'] font-bold rounded-lg uppercase tracking-wider transition-all duration-300">
+                    <Button type="primary" htmlType="submit" className="w-full bg-transparent hover:bg-[#00f0ff] text-[#00f0ff] hover:text-[#010409] border border-[#00f0ff] h-12 secondarytext font-bold rounded-lg uppercase tracking-wider transition-all duration-300">
                       Send
                     </Button>
                   </Form>
@@ -274,8 +354,8 @@ export default function App() {
               {/* Map Layout View */}
               <motion.div className="flex flex-col justify-between" variants={fadeInUp}>
                 <div>
-                  <h2 className="font-['Montserrat'] font-black text-2xl text-white uppercase tracking-wide mb-1">Location on Map</h2>
-                  <p className="font-['Poppins'] text-xs text-slate-400 mb-6 font-light">Here is our Physical Location.</p>
+                  <h2 className="secondarytext font-black text-2xl text-white uppercase tracking-wide mb-1">Location on Map</h2>
+                  <p className="primarytext text-xs text-slate-400 mb-6 font-light">Here is our Physical Location.</p>
                   <iframe 
                     title="Google Maps Location of Electrolyte Solutions Desktop"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3541.925400166601!2d82.1851739!3d27.4092567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3999df796136117d%3A0x2e0c4dbffc706446!2sElectrolyte%20Solutions!5e0!3m2!1sen!2sin!4v1746004641917!5m2!1sen!2sin" 
@@ -291,14 +371,14 @@ export default function App() {
             {/* Mobile Form/Map Stack Layout */}
             <motion.div className="lg:hidden flex flex-col gap-10" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={staggerContainer}>
               <motion.div className="bg-[#0d1117]/70 backdrop-blur-md border border-[#21262d] p-6 rounded-xl" variants={fadeInUp}>
-                <h2 className="font-['Montserrat'] font-bold text-xl text-white uppercase tracking-wider text-center mb-4">Get In Touch</h2>
+                <h2 className="secondarytext font-bold text-xl text-white uppercase tracking-wider text-center mb-4">Get In Touch</h2>
                 <form id="mobile-form" action="https://formsubmit.co/contact.electrolytesolutions@gmail.com" method="POST" className="flex flex-col gap-1 w-100">
                   <Form form={form} component={false}>
                     <Form.Item name="name" className="mb-3"><Input style={inputStyle} placeholder="Enter Name" name="name" required /></Form.Item>
                     <Form.Item name="phone" className="mb-3"><Input style={inputStyle} placeholder="Enter Phone" name="phone" required /></Form.Item>
                     <Form.Item name="email" className="mb-3"><Input style={inputStyle} placeholder="Enter Email" name="email" required /></Form.Item>
                     <Form.Item name="message" className="mb-4"><Input.TextArea style={inputStyle} rows={4} placeholder="Enter your Message" name="message" required /></Form.Item>
-                    <Button type="primary" htmlType="submit" className="w-full bg-transparent border border-[#00f0ff] text-[#00f0ff] h-11 font-['Montserrat'] font-bold uppercase tracking-wide">
+                    <Button type="primary" htmlType="submit" className="w-full bg-transparent border border-[#00f0ff] text-[#00f0ff] h-11 secondarytext font-bold uppercase tracking-wide">
                       Send
                     </Button>
                   </Form>
@@ -306,8 +386,8 @@ export default function App() {
               </motion.div>
 
               <motion.div className="flex flex-col" variants={fadeInUp}>
-                <h2 className="font-['Montserrat'] font-bold text-xl text-center text-white mb-1">Location on Map</h2>
-                <p className="font-['Poppins'] text-center font-light text-xs text-slate-400 mb-4">Here is our Physical Location.</p>
+                <h2 className="secondarytext font-bold text-xl text-center text-white mb-1">Location on Map</h2>
+                <p className="primarytext text-center font-light text-xs text-slate-400 mb-4">Here is our Physical Location.</p>
                 <iframe 
                   title="Google Maps Location of Electrolyte Solutions Mobile"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3541.925400166601!2d82.1851739!3d27.4092567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3999df796136117d%3A0x2e0c4dbffc706446!2sElectrolyte%20Solutions!5e0!3m2!1sen!2sin!4v1746004641917!5m2!1sen!2sin" 
@@ -330,16 +410,16 @@ export default function App() {
             
             {/* Column 1: Brand Intro */}
             <div className="flex flex-col gap-2">
-              <h2 className="font-['Montserrat'] text-2xl font-bold tracking-wide text-white">Electrolyte Solutions</h2>
-              <p className="font-['Poppins'] text-xs text-gray-400 font-light leading-relaxed">
+              <h2 className="secondarytext text-2xl font-bold tracking-wide text-white">Electrolyte Solutions</h2>
+              <p className="primarytext text-xs text-gray-400 font-light leading-relaxed">
                 Powering homes and businesses with reliable IT services.
               </p>
             </div>
 
             {/* Column 2: Easy Links */}
             <div>
-              <h3 className="font-['Montserrat'] text-sm font-bold uppercase tracking-widest mb-4 text-[#58a6ff]">Quick Links</h3>
-              <div className="font-['Poppins'] space-y-2.5 text-xs text-gray-400 flex flex-col">
+              <h3 className="secondarytext text-sm font-bold uppercase tracking-widest mb-4 text-[#58a6ff]">Quick Links</h3>
+              <div className="primarytext space-y-2.5 text-xs text-gray-400 flex flex-col">
                 <a href="#hero" className="hover:text-[#00f0ff] transition-colors">Home</a>
                 <a href="#services" className="hover:text-[#00f0ff] transition-colors">Services</a>
                 <a href="#contact" className="hover:text-[#00f0ff] transition-colors">Contact</a>
@@ -348,12 +428,12 @@ export default function App() {
 
             {/* Column 3: Contact Details */}
             <div className="flex flex-col gap-2">
-              <h3 className="font-['Montserrat'] text-sm font-bold uppercase tracking-widest mb-2 text-[#58a6ff]">Contact</h3>
-              <p className="font-['Poppins'] text-xs text-gray-400"><WhatsAppOutlined/> Phone: 09648146167. 08081111867</p>
-              <p className="font-['Poppins'] text-xs text-gray-400 break-all"><MailOutlined/> Email: contact.electrolytesolutions@gmail.com</p>
+              <h3 className="secondarytext text-sm font-bold uppercase tracking-widest mb-2 text-[#58a6ff]">Contact</h3>
+              <p className="primarytext text-xs text-gray-400"><WhatsAppOutlined/> Phone: 09648146167. 08081111867</p>
+              <p className="primarytext text-xs text-gray-400 break-all"><MailOutlined/> Email: contact.electrolytesolutions@gmail.com</p>
               <a 
                 href="https://wa.me/919648146167?text=Hello%20Electrolyte%20Solutions%2C%20I%20would%20like%20to%20book%20a%20service%21"
-                className="inline-block mt-2 bg-green-500 hover:bg-green-600 text-white text-sm px-4 py-2 rounded-lg font-['Poppins'] font-bold transition-all duration-300 w-fit text-center"
+                className="inline-block mt-2 bg-green-500 hover:bg-green-600 text-white text-sm px-4 py-2 rounded-lg primarytext font-bold transition-all duration-300 w-fit text-center"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -363,7 +443,7 @@ export default function App() {
 
             {/* Column 4: Social Items with Styled Buttons */}
             <div>
-              <h3 className="font-['Montserrat'] text-sm font-bold uppercase tracking-widest mb-4 text-[#58a6ff]">Follow Us</h3>
+              <h3 className="secondarytext text-sm font-bold uppercase tracking-widest mb-4 text-[#58a6ff]">Follow Us</h3>
               <div className="flex space-x-4 text-gray-400 text-2xl">
                 <button 
                   type="button"
@@ -394,7 +474,7 @@ export default function App() {
           </div>
 
           {/* Bottom Copyright Baseline */}
-          <div className="max-w-6xl mx-auto mt-12 border-t border-gray-800 pt-6 text-center text-xs text-gray-500 font-['Montserrat'] tracking-wide">
+          <div className="max-w-6xl mx-auto mt-12 border-t border-gray-800 pt-6 text-center text-xs text-gray-500 secondarytext tracking-wide">
             © 2026 Electrolyte Solutions. All rights reserved.
           </div>
         </footer>

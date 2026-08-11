@@ -1,3 +1,9 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Block the ERP admin panel from showing in Google Search
+Disallow: https://shop.electrolytesolutions.in/
+
+Sitemap: https://www.electrolytesolutions.in/sitemap.xml
