@@ -81,7 +81,7 @@ export default function App() {
         "Mobile app development for Android and iOS",
         "Fast and accurate computer data entry work",
         "Creative graphic designing for banners and ads",
-        "Speed document typing in both Hindi and English"
+        "Speed document typing in both Hindi and English."
       ]
     },
     {
