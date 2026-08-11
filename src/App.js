@@ -15,7 +15,8 @@ import {
   MailOutlined,
   ShoppingCartOutlined,
   DashboardOutlined,
-  UserOutlined
+  UserOutlined,
+  PhoneOutlined
 } from '@ant-design/icons';
 
 // ==========================================
@@ -209,9 +210,9 @@ export default function App() {
             </div>
             
             <nav className="hidden lg:flex gap-8 items-center primarytext text-sm font-medium">
-              <a href="#hero" className="text-slate-400 hover:text-[#00f0ff] transition-colors">Home</a>
-              <a href="#services" className="text-slate-400 hover:text-[#00f0ff] transition-colors">Our Services</a>
-              <a href="#contact" className="border border-[#00f0ff] text-[#00f0ff] hover:bg-[#00f0ff] hover:text-[#010409] px-4 py-2 rounded-lg secondarytext font-bold transition-all duration-300">Book Service</a>
+              <a href="#hero" className="text-slate-400 hover:text-[#00f0ff] transition-colors !no-underline">Home</a>
+              <a href="#services" className="text-slate-400 hover:text-[#00f0ff] transition-colors !no-underline">Our Services</a>
+              <a href="#contact" className="!no-underline border border-[#00f0ff] text-[#00f0ff] hover:bg-[#00f0ff] hover:text-[#010409] px-4 py-2 rounded-lg secondarytext font-bold transition-all duration-300">Book Service</a>
             </nav>
 
             <button className="lg:hidden text-xl text-[#00f0ff]" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
@@ -227,9 +228,9 @@ export default function App() {
                 exit={{ opacity: 0, height: 0 }}
                 className="lg:hidden w-full bg-[#0d1117]/90 backdrop-blur-lg border-b border-[#21262d] px-6 py-4 flex flex-col gap-4 primarytext text-sm"
               >
-                <a href="#hero" onClick={() => setMobileMenuOpen(false)} className="text-slate-300">Home</a>
-                <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-slate-300">Our Services</a>
-                <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="border border-[#00f0ff] text-center text-[#00f0ff] py-2 rounded-lg secondarytext font-bold">Book Service</a>
+                <a href="#hero" onClick={() => setMobileMenuOpen(false)} className="text-slate-300 !no-underline">Home</a>
+                <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-slate-300 !no-underline">Our Services</a>
+                <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="!no-underline border border-[#00f0ff] text-center text-[#00f0ff] py-2 rounded-lg secondarytext font-bold">Book Service</a>
               </motion.div>
             )}
           </AnimatePresence>
@@ -262,10 +263,10 @@ export default function App() {
               </motion.p>
 
               <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-4">
-                <a href="#contact" className="bg-[#00f0ff] text-[#010409] secondarytext font-bold px-8 py-4 rounded-xl tracking-wide uppercase transition-all duration-300 shadow-[0_0_20px_rgba(0,240,255,0.2)] hover:shadow-[0_0_35px_rgba(0,240,255,0.4)]">
+                <a href="#contact" className="bg-[#00f0ff] text-[#010409] !no-underline secondarytext font-bold px-8 py-4 rounded-xl tracking-wide uppercase transition-all duration-300 shadow-[0_0_20px_rgba(0,240,255,0.2)] hover:shadow-[0_0_35px_rgba(0,240,255,0.4)]">
                   Contact Us Now
                 </a>
-                <a href="#services" className="border border-[#30363d] bg-[#0d1117]/40 backdrop-blur-md text-white primarytext px-8 py-4 rounded-xl transition-all duration-300 hover:bg-[#161b22]">
+                <a href="#services" className="border border-[#30363d] !no-underline bg-[#0d1117]/40 backdrop-blur-md text-white primarytext px-8 py-4 rounded-xl transition-all duration-300 hover:bg-[#161b22]">
                   View All Services
                 </a>
               </motion.div>
@@ -424,24 +425,24 @@ export default function App() {
             <div>
               <h3 className="secondarytext text-sm font-bold uppercase tracking-widest mb-4 text-[#58a6ff]">Quick Links</h3>
               <div className="primarytext space-y-2.5 text-xs text-gray-400 flex flex-col">
-                <a href="#hero" className="hover:text-[#00f0ff] transition-colors">Home</a>
-                <a href="#services" className="hover:text-[#00f0ff] transition-colors">Services</a>
-                <a href="#contact" className="hover:text-[#00f0ff] transition-colors">Contact</a>
+                <a href="#hero" className="hover:text-[#00f0ff] transition-colors !no-underline">Home</a>
+                <a href="#services" className="hover:text-[#00f0ff] transition-colors !no-underline">Services</a>
+                <a href="#contact" className="hover:text-[#00f0ff] transition-colors !no-underline">Contact</a>
               </div>
             </div>
 
             {/* Column 3: Contact Details */}
             <div className="flex flex-col gap-2">
               <h3 className="secondarytext text-sm font-bold uppercase tracking-widest mb-2 text-[#58a6ff]">Contact</h3>
-              <p className="primarytext text-xs text-gray-400"><WhatsAppOutlined/> Phone: 09648146167. 08081111867</p>
+              <p className="primarytext text-xs text-gray-400"><PhoneOutlined/> Phone: 09648146167. 08081111867</p>
               <p className="primarytext text-xs text-gray-400 break-all"><MailOutlined/> Email: contact.electrolytesolutions@gmail.com</p>
               <a 
                 href="https://wa.me/919648146167?text=Hello%20Electrolyte%20Solutions%2C%20I%20would%20like%20to%20book%20a%20service%21"
-                className="inline-block mt-2 bg-green-500 hover:bg-green-600 text-white text-sm px-4 py-2 rounded-lg primarytext font-bold transition-all duration-300 w-fit text-center"
+                className="inline-block mt-2 !no-underline bg-green-500 hover:bg-green-600 text-white text-sm px-4 py-2 rounded-lg primarytext font-bold transition-all duration-300 w-fit text-center"
                 target="_blank"
                 rel="noreferrer"
               >
-                Chat on WhatsApp
+                <WhatsAppOutlined/> Chat on WhatsApp
               </a>
             </div>
 
