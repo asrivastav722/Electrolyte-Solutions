@@ -130,6 +130,7 @@ export default function App() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+              onClick={() => setShowLandingModal(false)}
             >
               <motion.div 
                 initial={{ scale: 0.9, y: 20, opacity: 0 }}
@@ -242,9 +243,12 @@ export default function App() {
           
           <div className="max-w-5xl mx-auto text-center relative z-10">
             <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
-              <motion.span variants={fadeInUp} className="secondarytext text-xs font-bold tracking-widest text-[#00f0ff] uppercase bg-[#00f0ff]/10 border border-[#00f0ff]/20 px-4 py-1.5 rounded-full">
-                Complete IT Hardware & Software Solutions
-              </motion.span>
+              <motion.span 
+                    variants={fadeInUp} 
+                    className="inline-block secondarytext text-xs font-bold tracking-widest text-[#00f0ff] uppercase bg-[#00f0ff]/10 border border-[#00f0ff]/20 px-4 py-1.5 rounded-full"
+                  >
+                    Your Personal and Professional IT Partner
+                  </motion.span>
               
               <motion.h1 variants={fadeInUp} className="secondarytext font-black text-4xl sm:text-6xl text-white mt-8 mb-6 tracking-tight leading-tight">
                 Complete IT Services <br />
