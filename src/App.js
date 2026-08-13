@@ -2,10 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Form, Input, Button, ConfigProvider } from 'antd';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  LaptopOutlined, 
-  MobileOutlined, 
-  GlobalOutlined, 
-  FileTextOutlined,
   MenuOutlined,
   CloseOutlined,
   FacebookOutlined,

@@ -20,7 +20,7 @@ const branchImages = {
     "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/heromob4.png",
     "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/heromob5.png"
   ],
-  "Electrolyte Web Services": [,
+  "Electrolyte Web Services": [
     "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/herocsc3.png",
     "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/herocsc4.png",
     "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/herocsc5.png",
