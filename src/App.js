@@ -91,7 +91,7 @@ export function HeroSection() {
 
       {/* Right Column: Professional Carousel Showcase (5 Columns) */}
       <motion.div variants={fadeInUp} className="lg:col-span-6">
-        <div className="relative rounded-2xl overflow-hidden border border-[#30363d] bg-[#161b22]/50 backdrop-blur-xl p-2.5 shadow-[0_0_40px_rgba(0,0,0,0.6)]">
+        <div className="relative rounded-2xl overflow-hidden bg-[#161b22]/50 backdrop-blur-xl p-2.5 shadow-[0_0_40px_rgba(0,0,0,0.6)]">
           <div className="relative h-[320px] sm:h-[420px] w-full rounded-xl overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.div
@@ -343,6 +343,25 @@ export default function App() {
                 <a href="#hero" onClick={() => setMobileMenuOpen(false)} className="text-slate-300 !no-underline">Home</a>
                 <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-slate-300 !no-underline">Our Services</a>
                 <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="!no-underline border border-[#00f0ff] text-center text-[#00f0ff] py-2 rounded-lg secondarytext font-bold">Book Service</a>
+                <a 
+                href="https://store.electrolytesolutions.in" 
+                className="group !no-underline flex items-center gap-2 bg-yellow-500 border border-[#00f0ff] text-black hover:bg-[#00f0ff] hover:text-[#010409] px-4 py-2 rounded-lg font-bold transition-all duration-300"
+              >
+                <ShoppingCartOutlined className="text-lg text-black group-hover:text-[#010409] transition-colors" />
+                Visit Store
+              </a>
+
+              {/* ERP Admin Panel Button */}
+              <a 
+                href="https://shop.electrolytesolutions.in" 
+                className="group !no-underline flex items-center gap-2.5 bg-[#161b22] border border-[#21262d] hover:border-[#58a6ff] px-4 py-2 rounded-lg transition-all duration-300 hover:shadow-[0_0_15px_rgba(88,166,255,0.2)]"
+              >
+                <DashboardOutlined className="text-lg text-[#58a6ff] transition-colors" />
+                <div className="flex flex-col text-left">
+                  <span className="font-bold text-white text-xs leading-tight">ERP Admin</span>
+                  <span className="text-[10px] text-slate-400 leading-tight">Staff Login</span>
+                </div>
+              </a>
               </motion.div>
             )}
           </AnimatePresence>
@@ -363,8 +382,8 @@ export default function App() {
         {/* ==========================================
             BLURRED GLASS CONTACT & MAP SECTION
         ========================================== */}
-        <section id="contact" className="py-24 bg-[#0d1117]/20 border-t border-[#21262d] px-6 relative z-10">
-          <div className="max-w-7xl mx-auto">
+        <section id="contact" className="py-24 bg-[#0d1117]/20 border-t border-[#21262d] px-6 relative z-10 ">
+          <div className="max-w-6xl mx-auto">
             
             {/* Desktop 2-Column Split View */}
             <motion.div 
@@ -375,7 +394,7 @@ export default function App() {
               variants={staggerContainer}
             >
               {/* Form Card */}
-              <motion.div className="bg-[#0d1117]/70 backdrop-blur-md border border-[#21262d] p-10 rounded-xl shadow-2xl" variants={fadeInUp}>
+              <motion.div className="bg-[#0d1117]/70 backdrop-blur-md border border-[#21262d] p-10 rounded-xl shadow-2xl " variants={fadeInUp}>
                 <div className="mb-8">
                   <h2 className="secondarytext font-black text-2xl text-white uppercase tracking-wide">Get In Touch</h2>
                   <p className="primarytext text-xs text-slate-400 mt-1 font-light">Contact us today for fast, reliable service.</p>
@@ -383,10 +402,10 @@ export default function App() {
                 
                 <form id="desktop-form" action="https://formsubmit.co/contact.electrolytesolutions@gmail.com" method="POST" className="flex flex-col gap-2">
                   <Form form={form} component={false}>
-                    <Form.Item name="name" className="mb-4"><Input style={inputStyle} placeholder="Enter Name" name="name" required /></Form.Item>
-                    <Form.Item name="phone" className="mb-4"><Input style={inputStyle} placeholder="Enter Phone" name="phone" required /></Form.Item>
-                    <Form.Item name="email" className="mb-4"><Input style={inputStyle} placeholder="Enter Email" name="email" required /></Form.Item>
-                    <Form.Item name="message" className="mb-4"><Input.TextArea style={inputStyle} rows={4} placeholder="Enter your Message" name="message" required /></Form.Item>
+                    <Form.Item name="name" className="mb-2"><Input style={inputStyle} placeholder="Enter Name" name="name" required /></Form.Item>
+                    <Form.Item name="phone" className="mb-2"><Input style={inputStyle} placeholder="Enter Phone" name="phone" required /></Form.Item>
+                    <Form.Item name="email" className="mb-2"><Input style={inputStyle} placeholder="Enter Email" name="email" required /></Form.Item>
+                    <Form.Item name="message" className="mb-2"><Input.TextArea style={inputStyle} rows={4} placeholder="Enter your Message" name="message" required /></Form.Item>
                     <Button type="primary" htmlType="submit" className="w-full bg-transparent hover:bg-[#00f0ff] text-[#00f0ff] hover:text-[#010409] border border-[#00f0ff] h-12 secondarytext font-bold rounded-lg uppercase tracking-wider transition-all duration-300">
                       Send
                     </Button>
@@ -417,10 +436,10 @@ export default function App() {
                 <h2 className="secondarytext font-bold text-xl text-white uppercase tracking-wider text-center mb-4">Get In Touch</h2>
                 <form id="mobile-form" action="https://formsubmit.co/contact.electrolytesolutions@gmail.com" method="POST" className="flex flex-col gap-1 w-100">
                   <Form form={form} component={false}>
-                    <Form.Item name="name" className="mb-3"><Input style={inputStyle} placeholder="Enter Name" name="name" required /></Form.Item>
-                    <Form.Item name="phone" className="mb-3"><Input style={inputStyle} placeholder="Enter Phone" name="phone" required /></Form.Item>
-                    <Form.Item name="email" className="mb-3"><Input style={inputStyle} placeholder="Enter Email" name="email" required /></Form.Item>
-                    <Form.Item name="message" className="mb-4"><Input.TextArea style={inputStyle} rows={4} placeholder="Enter your Message" name="message" required /></Form.Item>
+                    <Form.Item name="name" className="mb-2"><Input style={inputStyle} placeholder="Enter Name" name="name" required /></Form.Item>
+                    <Form.Item name="phone" className="mb-2"><Input style={inputStyle} placeholder="Enter Phone" name="phone" required /></Form.Item>
+                    <Form.Item name="email" className="mb-2"><Input style={inputStyle} placeholder="Enter Email" name="email" required /></Form.Item>
+                    <Form.Item name="message" className="mb-2"><Input.TextArea style={inputStyle} rows={4} placeholder="Enter your Message" name="message" required /></Form.Item>
                     <Button type="primary" htmlType="submit" className="w-full bg-transparent border border-[#00f0ff] text-[#00f0ff] h-11 secondarytext font-bold uppercase tracking-wide">
                       Send
                     </Button>
