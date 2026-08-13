@@ -18,6 +18,138 @@ import {
   UserOutlined,
   PhoneOutlined
 } from '@ant-design/icons';
+import hero1 from "./assets/images/hero2.png";
+import hero2 from "./assets/images/hero4.png";
+import hero3 from "./assets/images/hero1.png";
+import ServicesSection from './services';
+
+
+
+// Sample carousel images (Replace with your actual image paths or URLs)
+const carouselImages = [
+  {
+    url: hero1,
+    title: "On-Site IT & Hardware Repair",
+    type: "Electrolyte Mobile and Computers"
+  },
+  {
+    url: hero2,
+    title: "Professional Website & App Building",
+    type: "Electrolyte Web Services"
+  },
+  {
+    url: hero3,
+    title: "Government Forms & Digital Services",
+    type: "Electrolyte CSC Services"
+  },
+];
+
+export function HeroSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Auto-play carousel every 4 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+   <section id="hero" className="pt-44 pb-24 px-6 relative overflow-hidden flex items-center min-h-[85vh]">
+  {/* Background Effects */}
+  <div className="absolute inset-0 bg-[linear-gradient(to_right,#161b22_1px,transparent_1px),linear-gradient(to_bottom,#161b22_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] pointer-events-none"></div>
+  <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[650px] h-[450px] bg-[#00f0ff]/5 rounded-full filter blur-[120px] pointer-events-none"></div>
+  
+  <div className="max-w-7xl mx-auto relative z-10 w-full">
+    <motion.div 
+      initial="hidden" 
+      animate="visible" 
+      variants={staggerContainer}
+      className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center"
+    >
+      {/* Left Column: Text & CTA Content (7 Columns) */}
+      <motion.div variants={fadeInUp} className="lg:col-span-6 text-left">
+        <span className="inline-block secondarytext text-xs font-bold tracking-widest text-[#00f0ff] uppercase bg-[#00f0ff]/15 border border-[#00f0ff]/30 px-4 py-1.5 rounded-full shadow-[0_0_15px_rgba(0,240,255,0.15)] mb-6">
+          Your Personal and Professional IT Partner
+        </span>
+     
+        <h1 className="secondarytext font-black text-4xl sm:text-6xl text-white mb-6 tracking-tight leading-tight">
+          Complete IT Services <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f0ff] to-[#58a6ff]">
+            At Your Doorstep
+          </span>
+        </h1>
+
+        <p className="primarytext text-slate-400 text-base sm:text-lg max-w-xl mb-8 font-light leading-relaxed">
+          We handle repairs, installations, website building, and government digital forms. No need to visit a shop—our experts come directly to your home or office.
+        </p>
+
+        <div className="flex flex-wrap items-center gap-4">
+          <a href="#contact" className="bg-[#00f0ff] text-[#010409] !no-underline secondarytext font-bold px-8 py-4 rounded-xl tracking-wide uppercase transition-all duration-300 shadow-[0_0_20px_rgba(0,240,255,0.2)] hover:shadow-[0_0_35px_rgba(0,240,255,0.4)]">
+            Contact Us Now
+          </a>
+          <a href="#services" className="border border-[#30363d] !no-underline bg-[#0d1117]/40 backdrop-blur-md text-white primarytext px-8 py-4 rounded-xl transition-all duration-300 hover:bg-[#161b22]">
+            View All Services
+          </a>
+        </div>
+      </motion.div>
+
+      {/* Right Column: Professional Carousel Showcase (5 Columns) */}
+      <motion.div variants={fadeInUp} className="lg:col-span-6">
+        <div className="relative rounded-2xl overflow-hidden border border-[#30363d] bg-[#161b22]/50 backdrop-blur-xl p-2.5 shadow-[0_0_40px_rgba(0,0,0,0.6)]">
+          <div className="relative h-[320px] sm:h-[420px] w-full rounded-xl overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+                className="absolute inset-0"
+              >
+                <img
+                  src={carouselImages[currentIndex].url}
+                  alt={carouselImages[currentIndex].title}
+                  className="w-full h-full object-cover"
+                />
+                {/* Clean Professional Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#010409]/90 via-[#010409]/20 to-transparent flex items-end p-6">
+                  <div>
+                    <span className="text-[#00f0ff] text-xs font-semibold uppercase tracking-wider block mb-1">
+                      {carouselImages[currentIndex].type}
+                    </span>
+                    <span className="text-white text-lg sm:text-xl font-bold tracking-wide secondarytext drop-shadow-md">
+                      {carouselImages[currentIndex].title}
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Carousel Indicators / Dots */}
+            <div className="absolute bottom-6 right-6 z-20 flex gap-2">
+              {carouselImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    currentIndex === index 
+                      ? "w-8 bg-[#00f0ff] shadow-[0_0_10px_#00f0ff]" 
+                      : "w-2 bg-white/40 hover:bg-white/70"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  </div>
+</section>
+  );
+}
 
 // ==========================================
 // EASY, SMOOTH ANIMATIONS
@@ -59,54 +191,7 @@ export default function App() {
     border: '1px solid #30363d',
   };
 
-  const serviceBranches = [
-    {
-      title: "Electrolyte Computers",
-      icon: <LaptopOutlined className="text-3xl text-[#00f0ff] drop-shadow-[0_0_8px_#00f0ff]" />,
-      items: [
-        "Repairing and installation of computers (desktops)",
-        "Repairing and installation of laptops",
-        "Repairing and installation of printers",
-        "Repairing and installation of CCTV cameras",
-        "Complete office and home networking setup",
-        "Fresh Windows installation and troubleshooting",
-        "Helpdesk support on call for quick fixes"
-      ]
-    },
-    {
-      title: "Electrolyte Mobiles",
-      icon: <MobileOutlined className="text-3xl text-[#00f0ff] drop-shadow-[0_0_8px_#00f0ff]" />,
-      items: [
-        "Complete repairing and servicing of mobiles",
-        "Mobile hardware fixes and parts replacement",
-        "Software troubleshooting and unlocking",
-        "Doorstep basic checks and quick support repairs"
-      ]
-    },
-    {
-      title: "Electrolyte Web Services",
-      icon: <GlobalOutlined className="text-3xl text-[#00f0ff] drop-shadow-[0_0_8px_#00f0ff]" />,
-      items: [
-        "Professional website development for businesses",
-        "Mobile app development for Android and iOS",
-        "Fast and accurate computer data entry work",
-        "Creative graphic designing for banners and ads",
-        "Speed document typing in both Hindi and English."
-      ]
-    },
-    {
-      title: "Electrolyte CSC Services",
-      icon: <FileTextOutlined className="text-3xl text-[#00f0ff] drop-shadow-[0_0_8px_#00f0ff]" />,
-      items: [
-        "New PAN Card applications and corrections",
-        "Ration Card registration and official updates",
-        "Online application forms for jobs, exams, and college",
-        "High-quality digital photo printing and passport photos",
-        "Custom ID cards creation and official ID printing",
-        "Bulk document printouts, photocopies, and lamination"
-      ]
-    }
-  ];
+ 
 
   return (
     <ConfigProvider
@@ -270,42 +355,7 @@ export default function App() {
         </header>
 
         {/* ... [KEEP YOUR EXISTING HERO SECTION HERE] ... */}
-        <section id="hero" className="pt-44 pb-24 px-6 relative overflow-hidden flex items-center min-h-[85vh]">
-          {/* Backgrounds & Text */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#161b22_1px,transparent_1px),linear-gradient(to_bottom,#161b22_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] pointer-events-none"></div>
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[450px] h-[450px] bg-[#00f0ff]/5 rounded-full filter blur-[120px] pointer-events-none"></div>
-          
-          <div className="max-w-5xl mx-auto text-center relative z-10">
-            <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
-              <motion.span 
-                    variants={fadeInUp} 
-                    className="inline-block secondarytext text-xs font-bold tracking-widest text-[#00f0ff] uppercase bg-[#00f0ff]/10 border border-[#00f0ff]/20 px-4 py-1.5 rounded-full"
-                  >
-                    Your Personal and Professional IT Partner
-                  </motion.span>
-              
-              <motion.h1 variants={fadeInUp} className="secondarytext font-black text-4xl sm:text-6xl text-white mt-8 mb-6 tracking-tight leading-tight">
-                Complete IT Services <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f0ff] to-[#58a6ff]">
-                  At Your Doorstep
-                </span>
-              </motion.h1>
-
-              <motion.p variants={fadeInUp} className="primarytext text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-                We handle repairs, installations, website building, and government digital forms. No need to visit a shop—our experts come directly to your home or office.
-              </motion.p>
-
-              <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-4">
-                <a href="#contact" className="bg-[#00f0ff] text-[#010409] !no-underline secondarytext font-bold px-8 py-4 rounded-xl tracking-wide uppercase transition-all duration-300 shadow-[0_0_20px_rgba(0,240,255,0.2)] hover:shadow-[0_0_35px_rgba(0,240,255,0.4)]">
-                  Contact Us Now
-                </a>
-                <a href="#services" className="border border-[#30363d] !no-underline bg-[#0d1117]/40 backdrop-blur-md text-white primarytext px-8 py-4 rounded-xl transition-all duration-300 hover:bg-[#161b22]">
-                  View All Services
-                </a>
-              </motion.div>
-            </motion.div>
-          </div>
-        </section>
+        {<HeroSection/>}
 
         {/* ... [KEEP YOUR EXISTING SERVICES, CONTACT, AND FOOTER SECTIONS EXACTLY AS THEY WERE] ... */}
         {/* Intentionally abbreviated here to save token space - leave your existing code for these sections unchanged. */}
@@ -315,46 +365,7 @@ export default function App() {
         {/* ==========================================
             ALL SERVICES GRID SECTION
         ========================================== */}
-        <section id="services" className="py-24 px-6 max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="secondarytext font-black text-3xl sm:text-4xl text-white uppercase tracking-tight">Our Services List</h2>
-            <p className="primarytext text-slate-400 font-light text-sm sm:text-base mt-2 max-w-xl mx-auto">
-              Explore our four main branches created to handle all your tech and digital needs smoothly.
-            </p>
-          </div>
-
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
-            variants={staggerContainer}
-          >
-            {serviceBranches.map((branch, index) => (
-              <motion.div 
-                key={index}
-                variants={fadeInUp}
-                whileHover={{ y: -4, borderColor: '#00f0ff', boxShadow: '0 0 20px rgba(0,240,255,0.08)' }}
-                className="bg-[#0d1117]/60 backdrop-blur-md border border-[#21262d] p-8 rounded-xl transition-all duration-300 relative group"
-              >
-                <div className="absolute top-0 left-0 h-[3px] w-0 bg-gradient-to-r from-[#07575b] to-[#00f0ff] group-hover:w-full transition-all duration-500"></div>
-                <div className="flex items-center gap-4 mb-6 border-b border-[#21262d] pb-4">
-                  {branch.icon}
-                  <h3 className="secondarytext font-bold text-lg text-white tracking-wide">{branch.title}</h3>
-                </div>
-                <ul className="space-y-3.5 primarytext text-sm text-slate-400 font-light">
-                  {branch.items.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <span className="text-[#00f0ff] select-none mt-0.5">•</span>
-                      <span className="leading-relaxed">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </motion.div>
-        </section>
-
+        <ServicesSection/>
         {/* ==========================================
             BLURRED GLASS CONTACT & MAP SECTION
         ========================================== */}
