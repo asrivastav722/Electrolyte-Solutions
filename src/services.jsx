@@ -2,55 +2,37 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Carousel } from 'antd';
 import { LaptopOutlined, MobileOutlined, GlobalOutlined, FileTextOutlined } from '@ant-design/icons';
-import herocomp1 from "./assets/images/herocomp1.png";
-import herocomp2 from "./assets/images/herocomp2.png";
-import herocomp3 from "./assets/images/herocomp3.png";
-import herocomp4 from "./assets/images/herocomp4.png";
-import herocomp5 from "./assets/images/herocomp5.png";
-import herocsc1 from "./assets/images/herocsc1.png";
-import herocsc3 from "./assets/images/herocsc3.png";
-import herocsc4 from "./assets/images/herocsc4.png";
-import herocsc5 from "./assets/images/herocsc5.png";
-import heroweb1 from "./assets/images/heroweb1.png";
-import heroweb2 from "./assets/images/heroweb2.png";
-import heroweb3 from "./assets/images/heroweb3.png";
-import heroweb4 from "./assets/images/heroweb4.png";
-import heroweb5 from "./assets/images/heroweb5.png";
-import heromob1 from "./assets/images/heromob1.png";
-import heromob2 from "./assets/images/heromob2.png";
-import heromob3 from "./assets/images/heromob3.png";
-import heromob4 from "./assets/images/heromob4.png";
-import heromob5 from "./assets/images/heromob5.png";
+
 
 // Mapping images to each branch (4 images per branch)
 const branchImages = {
   "Electrolyte Computers": [
-    herocomp1,
-    herocomp2,
-    herocomp3,
-    herocomp4,
-    herocomp5,
+    "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/herocomp1.png",
+    "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/herocomp2.png",
+    "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/herocomp3.png",
+    "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/herocomp4.png",
+    "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/herocomp5.png"
   ],
   "Electrolyte Mobiles": [
-    heromob1,
-    heromob2,
-    heromob3,
-    heromob4,
-    heromob5,
+    "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/heromob1.png",
+    "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/heromob2.png",
+    "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/heromob3.png",
+    "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/heromob4.png",
+    "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/heromob5.png"
   ],
   "Electrolyte Web Services": [,
-    heroweb1,
-    herocsc3,
-    herocsc4,
-    herocsc5,
+    "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/herocsc3.png",
+    "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/herocsc4.png",
+    "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/herocsc5.png",
+    "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/heroweb1.png"
     
   ],
   "Electrolyte CSC Services": [
-    herocsc1,
-    heroweb2,
-    heroweb3,
-    heroweb4,
-    heroweb5,
+    "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/herocsc1.png",
+    "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/heroweb2.png",
+    "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/heroweb3.png",
+    "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/heroweb4.png",
+    "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/heroweb5.png"
   ]
 };
 

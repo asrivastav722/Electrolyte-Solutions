@@ -18,9 +18,7 @@ import {
   UserOutlined,
   PhoneOutlined
 } from '@ant-design/icons';
-import hero1 from "./assets/images/hero2.png";
-import hero2 from "./assets/images/hero4.png";
-import hero3 from "./assets/images/hero1.png";
+
 import ServicesSection from './services';
 
 
@@ -28,17 +26,17 @@ import ServicesSection from './services';
 // Sample carousel images (Replace with your actual image paths or URLs)
 const carouselImages = [
   {
-    url: hero1,
+    url: "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/hero2_n.png",
     title: "On-Site IT & Hardware Repair",
     type: "Electrolyte Mobile and Computers"
   },
   {
-    url: hero2,
+    url: "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/hero4_n.png",
     title: "Professional Website & App Building",
     type: "Electrolyte Web Services"
   },
   {
-    url: hero3,
+    url: "https://cdn.shopify.com/s/files/1/0703/7147/5499/files/hero1_n.png",
     title: "Government Forms & Digital Services",
     type: "Electrolyte CSC Services"
   },
