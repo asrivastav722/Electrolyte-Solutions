@@ -152,7 +152,7 @@ export default function App() {
 
                 <div className="flex flex-col gap-4 relative z-10">
                   {/* Shop Redirect */}
-                  <a href="https://store.electrolytesolutions.in" className="group flex items-center p-4 bg-[#161b22] border border-[#21262d] hover:border-[#00f0ff] rounded-xl transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,240,255,0.2)]">
+                  <a href="https://store.electrolytesolutions.in" className="!no-underline group flex items-center p-4 bg-[#161b22] border border-[#21262d] hover:border-[#00f0ff] rounded-xl transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,240,255,0.2)]">
                     <div className="bg-[#00f0ff]/10 p-3 rounded-lg mr-4 group-hover:bg-[#00f0ff] transition-colors">
                       <ShoppingCartOutlined className="text-xl text-[#00f0ff] group-hover:text-[#010409]" />
                     </div>
@@ -174,7 +174,7 @@ export default function App() {
                   </button>
 
                   {/* Admin Panel Redirect */}
-                  <a href="https://shop.electrolytesolutions.in" className="group flex items-center p-4 bg-[#161b22] border border-[#21262d] hover:border-[#58a6ff] rounded-xl transition-all duration-300 hover:shadow-[0_0_15px_rgba(88,166,255,0.2)]">
+                  <a href="https://shop.electrolytesolutions.in" className="group !no-underline flex items-center p-4 bg-[#161b22] border border-[#21262d] hover:border-[#58a6ff] rounded-xl transition-all duration-300 hover:shadow-[0_0_15px_rgba(88,166,255,0.2)]">
                     <div className="bg-[#58a6ff]/10 p-3 rounded-lg mr-4 group-hover:bg-[#58a6ff] transition-colors">
                       <DashboardOutlined className="text-xl text-[#58a6ff] group-hover:text-[#010409]" />
                     </div>
@@ -209,10 +209,43 @@ export default function App() {
               </div>
             </div>
             
-            <nav className="hidden lg:flex gap-8 items-center primarytext text-sm font-medium">
-              <a href="#hero" className="text-slate-400 hover:text-[#00f0ff] transition-colors !no-underline">Home</a>
-              <a href="#services" className="text-slate-400 hover:text-[#00f0ff] transition-colors !no-underline">Our Services</a>
-              <a href="#contact" className="!no-underline border border-[#00f0ff] text-[#00f0ff] hover:bg-[#00f0ff] hover:text-[#010409] px-4 py-2 rounded-lg secondarytext font-bold transition-all duration-300">Book Service</a>
+            <nav className="hidden lg:flex gap-6 items-center primarytext text-sm font-medium">
+              {/* Nav Links */}
+              <a href="#hero" className="text-slate-400 hover:text-[#00f0ff] transition-colors !no-underline">
+                Home
+              </a>
+              <a href="#services" className="text-slate-400 hover:text-[#00f0ff] transition-colors !no-underline">
+                Our Services
+              </a>
+
+              {/* Book Service Button */}
+              <a 
+                href="#contact" 
+                className="!no-underline border border-[#00f0ff] text-[#00f0ff] hover:bg-[#00f0ff] hover:text-[#010409] px-4 py-2 rounded-lg font-bold transition-all duration-300"
+              >
+                Book Service
+              </a>
+
+              {/* Visit Store Button */}
+              <a 
+                href="https://store.electrolytesolutions.in" 
+                className="group !no-underline flex items-center gap-2 bg-yellow-500 border border-[#00f0ff] text-black hover:bg-[#00f0ff] hover:text-[#010409] px-4 py-2 rounded-lg font-bold transition-all duration-300"
+              >
+                <ShoppingCartOutlined className="text-lg text-black group-hover:text-[#010409] transition-colors" />
+                Visit Store
+              </a>
+
+              {/* ERP Admin Panel Button */}
+              <a 
+                href="https://shop.electrolytesolutions.in" 
+                className="group !no-underline flex items-center gap-2.5 bg-[#161b22] border border-[#21262d] hover:border-[#58a6ff] px-4 py-2 rounded-lg transition-all duration-300 hover:shadow-[0_0_15px_rgba(88,166,255,0.2)]"
+              >
+                <DashboardOutlined className="text-lg text-[#58a6ff] transition-colors" />
+                <div className="flex flex-col text-left">
+                  <span className="font-bold text-white text-xs leading-tight">ERP Admin</span>
+                  <span className="text-[10px] text-slate-400 leading-tight">Staff Login</span>
+                </div>
+              </a>
             </nav>
 
             <button className="lg:hidden text-xl text-[#00f0ff]" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
