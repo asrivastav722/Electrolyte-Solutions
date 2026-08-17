@@ -12,7 +12,8 @@ import {
   ShoppingCartOutlined,
   DashboardOutlined,
   UserOutlined,
-  PhoneOutlined
+  PhoneOutlined,
+  ArrowRightOutlined
 } from '@ant-design/icons';
 
 import ServicesSection from './services';
@@ -80,11 +81,15 @@ export function HeroSection() {
         </p>
 
         <div className="flex flex-wrap items-center gap-4">
-          <a href="#contact" className="bg-[#00f0ff] text-[#010409] !no-underline secondarytext font-bold px-8 py-4 rounded-xl tracking-wide uppercase transition-all duration-300 shadow-[0_0_20px_rgba(0,240,255,0.2)] hover:shadow-[0_0_35px_rgba(0,240,255,0.4)]">
-            Contact Us Now
+          <a  href="https://wa.me/919648146167?text=Hello%20Electrolyte%20Solutions%2C%20I%20would%20like%20to%20book%20a%20service%21" className="bg-[#00f0ff] text-[#010409] !no-underline secondarytext font-bold px-8 py-4 rounded-xl tracking-wide uppercase transition-all duration-300 shadow-[0_0_20px_rgba(0,240,255,0.2)] hover:shadow-[0_0_35px_rgba(0,240,255,0.4)]">
+            Book a Service
           </a>
-          <a href="#services" className="border border-[#30363d] !no-underline bg-[#0d1117]/40 backdrop-blur-md text-white primarytext px-8 py-4 rounded-xl transition-all duration-300 hover:bg-[#161b22]">
-            View All Services
+          <a href="https://store.electrolytesolutions.in" 
+            className=" !no-underline bg-[#0d1117]/40 backdrop-blur-md text-black bg-yellow-500 secondarytext px-8 py-4 rounded-xl 
+            transition-all duration-300 hover:bg-yellow-300 font-semibold uppercase">
+            <ShoppingCartOutlined  className='pr-2' />
+            Visit Store
+            <ArrowRightOutlined className='pl-2' />
           </a>
         </div>
       </motion.div>
@@ -161,7 +166,7 @@ const staggerContainer = {
 export default function App() {
   const [form] = Form.useForm();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [showLandingModal, setShowLandingModal] = useState(true); // Controls the landing prompt
+  const [showLandingModal, setShowLandingModal] = useState(false); // Controls the landing prompt
 
   const logoPath = "./assets/images/Electrolyte.png";
 
@@ -297,22 +302,6 @@ export default function App() {
                 Our Services
               </a>
 
-              {/* Book Service Button */}
-              <a 
-                href="#contact" 
-                className="!no-underline border border-[#00f0ff] text-[#00f0ff] hover:bg-[#00f0ff] hover:text-[#010409] px-4 py-2 rounded-lg font-bold transition-all duration-300"
-              >
-                Book Service
-              </a>
-
-              {/* Visit Store Button */}
-              <a 
-                href="https://store.electrolytesolutions.in" 
-                className="group !no-underline flex items-center gap-2 bg-yellow-500 border border-[#00f0ff] text-black hover:bg-[#00f0ff] hover:text-[#010409] px-4 py-2 rounded-lg font-bold transition-all duration-300"
-              >
-                <ShoppingCartOutlined className="text-lg text-black group-hover:text-[#010409] transition-colors" />
-                Visit Store
-              </a>
 
               {/* ERP Admin Panel Button */}
               <a 
@@ -342,14 +331,7 @@ export default function App() {
               >
                 <a href="#hero" onClick={() => setMobileMenuOpen(false)} className="text-slate-300 !no-underline">Home</a>
                 <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-slate-300 !no-underline">Our Services</a>
-                <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="!no-underline border border-[#00f0ff] text-center text-[#00f0ff] py-2 rounded-lg secondarytext font-bold">Book Service</a>
-                <a 
-                href="https://store.electrolytesolutions.in" 
-                className="group !no-underline flex items-center gap-2 bg-yellow-500 border border-[#00f0ff] text-black hover:bg-[#00f0ff] hover:text-[#010409] px-4 py-2 rounded-lg font-bold transition-all duration-300"
-              >
-                <ShoppingCartOutlined className="text-lg text-black group-hover:text-[#010409] transition-colors" />
-                Visit Store
-              </a>
+                
 
               {/* ERP Admin Panel Button */}
               <a 
@@ -485,6 +467,8 @@ export default function App() {
                 <a href="#hero" className="hover:text-[#00f0ff] transition-colors !no-underline">Home</a>
                 <a href="#services" className="hover:text-[#00f0ff] transition-colors !no-underline">Services</a>
                 <a href="#contact" className="hover:text-[#00f0ff] transition-colors !no-underline">Contact</a>
+                <a href="https:/store.electrolytesolutions.in" className="hover:text-[#00f0ff] transition-colors !no-underline">Visit Store</a>
+                <a href="https:/shop.electrolytesolutions.in" className="hover:text-[#00f0ff] transition-colors !no-underline">Admin Panel</a>
               </div>
             </div>
 
